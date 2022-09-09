@@ -1,0 +1,36 @@
+.current-weather__temp{
+    font-size: 3rem;
+}
+
+.current-weather__info{
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+}
+.current-weather__address{
+    font-size: 2rem;
+}
+.current-weather__wrapper{
+    display: flex;
+    color: white;
+}
+.current-weather__details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3em 0;
+    border-bottom: solid 0.1em;
+}
+.current-weather__details-wrapper{
+   width: 100%;
+}
+h4{
+    text-align: center;
+    letter-spacing: 0.2em;
+}
+.current-weather__img{
+    margin: 1em;
+}
+.current-weather__conditions{
+    color: white;
+}
