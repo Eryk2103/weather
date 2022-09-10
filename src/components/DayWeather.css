@@ -1,0 +1,25 @@
+.icon-list{
+    font-size: 3em;
+    grid-area: date-card-icon;
+
+}
+.day-card__temp{
+    grid-area: day-card-temp;
+    gap:0.3em;
+}
+.day-card__date{
+    grid-area: day-card-date;
+}
+.day-card{
+    color: white;
+    background-color: var(--dark);
+    margin: 0 1.5rem;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(4,25%);
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "day-card-date date-card-icon day-card-temp day-card-temp";
+    border-bottom: 0.1em solid;
+    
+}

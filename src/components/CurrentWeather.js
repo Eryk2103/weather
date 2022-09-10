@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from "./shared/Card";
 import "./CurrentWeather.css";
 import { IconContext } from "react-icons";
 import { RiCelsiusFill } from "react-icons/ri";
@@ -11,13 +11,14 @@ import {
   BsFillBrightnessAltLowFill,
   BsWind,
 } from "react-icons/bs";
+import Icon from "./shared/Icon";
 
 const CurrentWeather = (props) => {
     const foramtDate = (str) => {
         return str.slice(0,5);
     };
   return (
-    <Card>
+    <Card className="mb-0">
       <h4 className="current-weather__conditions">
         {props.weather.conditions} {foramtDate(props.weather.datetime)}
       </h4>
@@ -32,7 +33,7 @@ const CurrentWeather = (props) => {
           </div>
           <div className="current-weather__img">
             <IconContext.Provider value={{ size: "6em" }}>
-              <BsFillCloudSleetFill />
+              <Icon icon={props.weather.icon} />
             </IconContext.Provider>
           </div>
           <div className="current-weather__details-wrapper">

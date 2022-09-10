@@ -1,27 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-html{
-    font-family: 'Roboto', sans-serif;
-
-}
-:root {
-    --light: #8ecae6;
-    --blue: #219ebc;
-    --dark: #023047;
-    --sunny: #ffb703;
-    --orange: #fb8500;
-    --spead: 500ms;
+main{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.app{
+.main-current-weather{
+    grid-column-start: 3;
+    grid-column-end: 7;
     
 }
+.main-current-days{
+    margin-top: 1.5rem;
+    grid-column-start: 7;
+    grid-column-end: 11;
+}
+@media (max-width: 1100px){
+    
+.main-current-weather{
+    
+    grid-column-start: 3;
+    grid-column-end: 11;
+    
+}
+.main-current-days{
+    grid-column-start: 3;
+    grid-column-end: 11;
+}
+}
+
+@media (max-width: 530px){
+    
+    .main-current-weather{
+        
+        grid-column-start: 1;
+        grid-column-end: 13;
+        
+    }
+    .main-current-days{
+        grid-column-start: 1;
+        grid-column-end: 13;
+    }
+    }

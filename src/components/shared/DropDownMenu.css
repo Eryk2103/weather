@@ -1,0 +1,8 @@
+.dropdownmenu{
+    position: absolute;
+    top: 60px;
+    width: 200px;
+    transform: translate(-76%);
+    background-color: #222326;
+    padding: 0.5em;
+}

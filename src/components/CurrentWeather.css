@@ -6,6 +6,7 @@
     padding: 1em;
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 }
 .current-weather__address{
     font-size: 2rem;
@@ -13,6 +14,7 @@
 .current-weather__wrapper{
     display: flex;
     color: white;
+    
 }
 .current-weather__details{
     display: flex;
@@ -20,6 +22,9 @@
     align-items: center;
     padding: 0.3em 0;
     border-bottom: solid 0.1em;
+}
+.current-weather__details:last-child{
+    border-bottom: none;
 }
 .current-weather__details-wrapper{
    width: 100%;
@@ -33,4 +38,7 @@ h4{
 }
 .current-weather__conditions{
     color: white;
+}
+.mb-0{
+    margin-bottom: 0;
 }
