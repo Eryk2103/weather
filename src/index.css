@@ -4,12 +4,8 @@ html{
     font-size: 16px;
 }
 :root {
-    --light: #8ecae6;
-    --blue: #219ebc;
+    --light: hsl(199, 86%, 31%);
     --dark: #023047;
-    --sunny: #ffb703;
-    --orange: #fb8500;
-    --spead: 500ms;
 }
 
 * {

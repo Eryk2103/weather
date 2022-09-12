@@ -12,11 +12,15 @@ import {
   BsWind,
 } from "react-icons/bs";
 import Icon from "./shared/Icon";
+import TempIcon from "./shared/TempIcon";
+import { convertTemp, toFahrenheit } from "../helpers";
+
 
 const CurrentWeather = (props) => {
     const foramtDate = (str) => {
         return str.slice(0,5);
     };
+    
   return (
     <Card className="mb-0">
       <h4 className="current-weather__conditions">
@@ -26,8 +30,9 @@ const CurrentWeather = (props) => {
         <div className="current-weather__info">
           <div className="curremt-weather__basic">
             <p className="current-weather__temp">
-              {props.weather.temp}
-              <RiCelsiusFill />
+              {props.tempUnit === 'C' && props.weather.temp} 
+              {props.tempUnit === 'F' && toFahrenheit(props.weather.temp)} 
+              <TempIcon unit={props.tempUnit} />
             </p>
             <p className="current-weather__address">{props.location}</p>
           </div>
@@ -39,8 +44,10 @@ const CurrentWeather = (props) => {
           <div className="current-weather__details-wrapper">
             <div className="current-weather__details">
               <span>
-                <BsThermometerHalf /> {props.weather.feelslike}
-                <RiCelsiusFill />
+                <BsThermometerHalf /> 
+                {props.tempUnit === 'C' && props.weather.feelslike} 
+              {props.tempUnit === 'F' && toFahrenheit(props.weather.feelslike)} 
+                <TempIcon unit={props.tempUnit} />
               </span>
               <span>feels like</span>
             </div>

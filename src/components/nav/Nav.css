@@ -1,11 +1,11 @@
-.navbar {
+.navbar-ul {
     background-color: var(--dark);
     padding: 1em;
     color: white;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
 }
 
 .dropdown-item{

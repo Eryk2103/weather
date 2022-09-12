@@ -1,8 +1,15 @@
 import './Search.css';
-const Search = () => {
+const Search = (props) => {
+    const searchHandler = (event) => {
+        if(event.key === "Enter")
+        {
+            props.onSubmitSearch(event.target.value);
+        }
+        
+    };
     return(
         <div className='search-wrapper'>
-            <input type="text" placeholder="Search..."/>
+            <input onKeyDown={searchHandler} type="text" placeholder="Search..."/>
         </div>
     );
 };
