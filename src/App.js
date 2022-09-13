@@ -8,40 +8,36 @@ import DayWeather from "./components/DayWeather";
 import { convertTemp } from "./helpers";
 
 function App() {
-  //const [isLoading, SetLoading] = useState(true);
-  //const [data, setData] = useState([]);
+  const [isLoading, SetLoading] = useState(true);
+  const [data, setData] = useState({});
   const [tempUnit, setTempUnit] = useState('C');
-  const [currentConditions, setCurrentConditions] = useState(myData.currentConditions);
+  const [search, setSearch] = useState('Warsaw');
+  const searchHandler = (searchStr) => {
+    setSearch(searchStr);
+  }
+    useEffect(() => {
+      fetch( 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'+search+'?unitGroup=metric&key=2APHZRXYVEQHY4XV7FRGMPV4X&contentType=json', {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      }).then(res => {
+        return res.json();
+      }).then(data => {
+        SetLoading(false);
+        setData(data);
+      });
+    }, [search])
+  
 
-  const search = (value) => {
-    const searchStr = value;
-  };
-  /*
-  useEffect(() => {
-    fetch( 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Warsaw?unitGroup=metric&key=2APHZRXYVEQHY4XV7FRGMPV4X&contentType=json', {
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    }).then(res => {
-      return res.json();
-    }).then(data => {
-      SetLoading(false);
-      setData(data);
-    });
-  }, [])
-    
   if(isLoading)
   {
     return(
       <em>Loading...</em>
     );
   }
-  */
-  const { address } = myData;
 
   const tempChange = (value) => {
-    
     if(value === 'C') {
       setTempUnit('C');
     }
@@ -57,11 +53,11 @@ function App() {
       </header>
       <main>
         <div className="main-current-weather">
-          <Search onSubmitSearch={search} />
+          <Search onSubmitSearch={searchHandler} />
           <div className="current-weather">
           <CurrentWeather 
-            weather={currentConditions}
-            location={address}
+            weather={data.currentConditions}
+            location={data.address}
             tempUnit={tempUnit}
           ></CurrentWeather>
           </div>
@@ -69,7 +65,7 @@ function App() {
         </div>
         <div className="main-current-days">
             <ul>
-              {myData.days.map((day, index) => (
+              {data.days.map((day, index) => (
                 <DayWeather date={day} key={index} tempUnit={tempUnit}/>
               ))}
             </ul>

@@ -10,11 +10,10 @@ const DayWeather = (props) => {
   const [open, setOpen] = useState(false);
   function displayHours() {
     setOpen(!open);
-    console.log(open);
   }
   return (
     <li>
-      <article className="day-card" onClick={() => displayHours()}>
+      <article className="day-card hover" onClick={() => displayHours()}>
         <DateCard
           className="day-card__date center"
           date={props.date.datetime}
