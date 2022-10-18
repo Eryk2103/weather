@@ -7,7 +7,7 @@ This is a react app for checking the weather.
 - React
 - Firebase
 
-#App functionality
+# App functionality
 
 User can enter the location name to view the current conditions and 15 day forecast.
 
