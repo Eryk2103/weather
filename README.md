@@ -1,5 +1,5 @@
 # App description
-https://weather-54ed8.web.app/
+https://weather-54ed8.web.app/ \
 This is a react app for checking the weather.
 
 #Tech-stack
